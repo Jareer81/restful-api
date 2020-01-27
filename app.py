@@ -8,11 +8,14 @@ from resources.item_registry import Item, ItemsList
 from resources.store_registry import Store
 from resources.store_registry import StoreList
 
+
+
 app = Flask (__name__)
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config ['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jareer'
 api = Api (app)
+
 
 
 jwt = JWT (app, authenticate, identity)
@@ -27,4 +30,4 @@ if __name__ == "__main__":
     from db import db
 
     db.init_app (app)
-    app.run (port=5000, debug=True)
+
